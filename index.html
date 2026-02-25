@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rajpurohit Marble & Granite</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+}
+header {
+    background: #1f1f1f;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+nav {
+    background: #444;
+    display: flex;
+    justify-content: center;
+}
+nav a {
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+}
+nav a:hover {
+    background: orange;
+}
+section {
+    background: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+}
+h2 {
+    color: #333;
+}
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+.gallery img {
+    width: 100%;
+    border-radius: 6px;
+}
+form {
+    max-width: 400px;
+}
+input, select, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+}
+button {
+    background: orange;
+    color: white;
+    border: none;
+    font-size: 16px;
+}
+footer {
+    background: #1f1f1f;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Rajpurohit Marble & Granite</h1>
+<p>Owner: Kanhaiya Rajpurohit</p>
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#message">Message</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+<h2>Marble – 10 Colors</h2>
+<div class="gallery">
+<img src="https://source.unsplash.com/300x300/?white-marble">
+<img src="https://source.unsplash.com/300x300/?black-marble">
+<img src="https://source.unsplash.com/300x300/?brown-marble">
+<img src="https://source.unsplash.com/300x300/?pink-marble">
+<img src="https://source.unsplash.com/300x300/?green-marble">
+<img src="https://source.unsplash.com/300x300/?red-marble">
+<img src="https://source.unsplash.com/300x300/?yellow-marble">
+<img src="https://source.unsplash.com/300x300/?grey-marble">
+<img src="https://source.unsplash.com/300x300/?blue-marble">
+<img src="https://source.unsplash.com/300x300/?beige-marble">
+</div>
+
+<h2>Granite – 10 Colors</h2>
+<div class="gallery">
+<img src="https://source.unsplash.com/300x300/?black-granite">
+<img src="https://source.unsplash.com/300x300/?white-granite">
+<img src="https://source.unsplash.com/300x300/?red-granite">
+<img src="https://source.unsplash.com/300x300/?green-granite">
+<img src="https://source.unsplash.com/300x300/?blue-granite">
+<img src="https://source.unsplash.com/300x300/?brown-granite">
+<img src="https://source.unsplash.com/300x300/?grey-granite">
+<img src="https://source.unsplash.com/300x300/?pink-granite">
+<img src="https://source.unsplash.com/300x300/?gold-granite">
+<img src="https://source.unsplash.com/300x300/?pattern-granite">
+</div>
+</section>
+
+<!-- MESSAGE -->
+<section id="message">
+<h2>Message</h2>
+<p>
+Rajpurohit Marble & Granite aapko best quality marble aur granite
+sabhi colors mein uplabdh karata hai.  
+Hamari pehchan hai **quality, trust aur best price**.
+</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact / Order Form</h2>
+
+<form>
+<label>Customer Name</label>
+<input type="text" required>
+
+<label>Mobile Number</label>
+<input type="tel" required>
+
+<label>Select Material</label>
+<select>
+<option>Marble</option>
+<option>Granite</option>
+</select>
+
+<label>Message</label>
+<textarea></textarea>
+
+<button type="submit">Submit</button>
+</form>
+</section>
+
+<footer>
+<p>© 2026 Rajpurohit Marble & Granite | Owner: Kanhaiya Rajpurohit</p>
+</footer>
+
+</body>
+</html>
