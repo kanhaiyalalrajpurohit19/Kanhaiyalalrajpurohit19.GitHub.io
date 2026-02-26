@@ -1,0 +1,221 @@
+bow.mp3     (dhanush khinchne ki awaaz)
+arrow.mp3   ( <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HD Mobile Archery Game</title>
+
+<style>
+body{
+    margin:0;
+    overflow:hidden;
+    font-family:Arial, sans-serif;
+    background: linear-gradient(#0b3d0b,#2e7d32,#66bb6a);
+}
+
+/* river */
+#river{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:120px;
+    background: linear-gradient(#0d47a1,#42a5f5);
+}
+
+/* UI */
+#ui{
+    position:absolute;
+    top:10px;
+    width:100%;
+    text-align:center;
+    color:white;
+    font-size:18px;
+    text-shadow:2px 2px 5px black;
+}
+
+canvas{ display:block; }
+
+/* result */
+#result{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.9);
+    color:white;
+    display:none;
+    text-align:center;
+    padding-top:40px;
+}
+button{
+    padding:12px 25px;
+    font-size:18px;
+    border:none;
+    border-radius:8px;
+    background:gold;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bowSound" src="bow.mp3"></audio>
+<audio id="arrowSound" src="arrow.mp3"></audio>
+
+<div id="ui">
+    Shots: <span id="shots">10</span> |
+    Score: <span id="score">0</span>
+</div>
+
+<canvas id="game"></canvas>
+<div id="river"></div>
+
+<div id="result">
+    <h2>🏆 Final Result</h2>
+    <p>Your Score: <span id="finalScore"></span></p>
+    <ol id="rankList"></ol>
+    <button onclick="location.reload()">Play Again</button>
+</div>
+
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+canvas.width = innerWidth;
+canvas.height = innerHeight;
+
+const bowSound = document.getElementById("bowSound");
+const arrowSound = document.getElementById("arrowSound");
+
+let shots = 10, score = 0;
+let dragging = false;
+let arrowFlying = false;
+
+const bow = { x:60, y:canvas.height-180 };
+const arrow = { x:canvas.width-80, y:canvas.height-180 };
+
+const target = {
+    x:canvas.width/2,
+    y:canvas.height/2,
+    r1:30, r2:60, r3:90
+};
+
+function drawTarget(){
+    ctx.save();
+    ctx.translate(target.x,target.y);
+
+    ctx.fillStyle="red";
+    ctx.beginPath(); ctx.arc(0,0,target.r3,0,Math.PI*2); ctx.fill();
+
+    ctx.fillStyle="blue";
+    ctx.beginPath(); ctx.arc(0,0,target.r2,0,Math.PI*2); ctx.fill();
+
+    ctx.fillStyle="gold";
+    ctx.beginPath(); ctx.arc(0,0,target.r1,0,Math.PI*2); ctx.fill();
+    ctx.restore();
+}
+
+function drawBow(){
+    ctx.beginPath();
+    ctx.arc(bow.x,bow.y,60,-Math.PI/2,Math.PI/2);
+    ctx.strokeStyle="#4e342e";
+    ctx.lineWidth=8;
+    ctx.stroke();
+}
+
+function drawArrow(){
+    ctx.beginPath();
+    ctx.moveTo(arrow.x,arrow.y);
+    ctx.lineTo(arrow.x-50,arrow.y);
+    ctx.strokeStyle="black";
+    ctx.lineWidth=4;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(arrow.x-50,arrow.y);
+    ctx.lineTo(arrow.x-42,arrow.y-6);
+    ctx.lineTo(arrow.x-42,arrow.y+6);
+    ctx.fill();
+}
+
+function redraw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    drawTarget();
+    drawBow();
+    drawArrow();
+}
+
+function shootArrow(){
+    if(arrowFlying) return;
+    arrowFlying = true;
+
+    arrowSound.currentTime=0;
+    arrowSound.play();
+
+    const dx = target.x-arrow.x;
+    const dy = target.y-arrow.y;
+
+    let t=0;
+    const fly=setInterval(()=>{
+        arrow.x += dx/20;
+        arrow.y += dy/20;
+        redraw();
+        t++;
+        if(t>20){
+            clearInterval(fly);
+            arrowFlying=false;
+            checkScore();
+            arrow.x=canvas.width-80;
+            arrow.y=bow.y;
+            redraw();
+        }
+    },20);
+}
+
+function checkScore(){
+    const d=Math.hypot(arrow.x-target.x,arrow.y-target.y);
+    if(d<=target.r1) score+=10;
+    else if(d<=target.r2) score+=5;
+    else if(d<=target.r3) score+=3;
+
+    shots--;
+    shotsEl.innerText=shots;
+    scoreEl.innerText=score;
+    if(shots===0) endGame();
+}
+
+const shotsEl=document.getElementById("shots");
+const scoreEl=document.getElementById("score");
+
+canvas.addEventListener("touchstart",()=>{
+    dragging=true;
+    bowSound.currentTime=0;
+    bowSound.play();
+});
+
+canvas.addEventListener("touchmove",e=>{
+    if(!dragging) return;
+    bow.y = arrow.y = e.touches[0].clientY;
+    redraw();
+});
+
+canvas.addEventListener("touchend",()=>{
+    dragging=false;
+    shootArrow();
+});
+
+function endGame(){
+    document.getElementById("finalScore").innerText=score;
+    const list=document.getElementById("rankList");
+    for(let i=1;i<=10;i++){
+        const li=document.createElement("li");
+        li.innerText="Player "+i+" – "+(Math.floor(Math.random()*80)+20);
+        list.appendChild(li);
+    }
+    document.getElementById("result").style.display="block";
+}
+
+redraw();
+</script>
+
+</body>
+</html> ki awaaz)teer
