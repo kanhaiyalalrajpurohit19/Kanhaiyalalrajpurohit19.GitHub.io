@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riddle 9</title>
+<script>
+function checkAnswer(){
+    let ans = document.getElementById("answer").value.toLowerCase();
+    if(ans === "future"){
+        alert("🎉 Congratulations! You completed the Riddle Game!");
+        location.href="index.html";
+    } else {
+        alert("Wrong answer! Try again.");
+    }
+}
+</script>
+</head>
+<body>
+<h2>Final Riddle</h2>
+<p>What is always ahead of you but never behind?</p>
+<input id="answer" type="text">
+<button onclick="checkAnswer()">Submit</button>
+</body>
+</html>
