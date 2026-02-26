@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajpurohit Marble & Granite</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:linear-gradient(to bottom,#1e3c72,#2a5298);
+  color:white;
+  overflow:hidden;
+  text-align:center;
+  font-family:Segoe UI;
+}
+
+#hanuman{
+  position:absolute;
+  top:-200px;
+  left:50%;
+  transform:translateX(-50%);
+  animation:fly 4s forwards;
+}
+
+@keyframes fly{
+  to{ top:120px; }
+}
+
+#showroom{
+  display:none;
+  margin-top:350px;
+  animation:rise 2s forwards;
+}
+
+@keyframes rise{
+  from{ transform:scale(0); }
+  to{ transform:scale(1); }
+}
+
+button{
+  padding:12px 20px;
+  font-size:16px;
+  cursor:pointer;
+}
+</style>
+
+<script>
+setTimeout(()=>{
+  document.getElementById("showroom").style.display="block";
+},4000);
+</script>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio autoplay loop>
+  <source src="billionaire.mp3" type="audio/mpeg">
+</audio>
+
+<img id="hanuman" src="images/hanuman-flying.png" width="200">
+
+<div id="showroom">
+  <h1>🏢 Rajpurohit Marble & Granite</h1>
+  <h3>Owner: Kanhaiya Rajpurohit</h3>
+  <p>Premium Marble & Granite for Temples, Hotels & Luxury Spaces</p>
+  <button onclick="location.href='page2-showroom.html'">Enter Showroom</button>
+</div>
+
+</body>
+</html>
