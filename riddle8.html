@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riddle 8</title>
+<script>
+function checkAnswer(){
+    let ans = document.getElementById("answer").value.toLowerCase();
+    if(ans === "silence"){
+        location.href="riddle9.html";
+    } else {
+        alert("Wrong answer! Try again.");
+    }
+}
+</script>
+</head>
+<body>
+<h2>Riddle 8</h2>
+<p>What is so fragile that saying its name breaks it?</p>
+<input id="answer" type="text">
+<button onclick="checkAnswer()">Submit</button>
+</body>
+</html>
