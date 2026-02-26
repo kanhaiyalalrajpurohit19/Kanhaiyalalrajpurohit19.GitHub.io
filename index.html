@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajpurohit Marble and Granite</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#f5f5f5;
+}
+
+header{
+background:#111;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+nav{
+display:flex;
+justify-content:center;
+background:#333;
+flex-wrap:wrap;
+}
+
+nav a{
+color:white;
+padding:12px 20px;
+text-decoration:none;
+}
+
+nav a:hover{
+background:#ff9800;
+}
+
+.container{
+padding:20px;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+border-radius:10px;
+box-shadow:0 4px 8px rgba(0,0,0,0.1);
+overflow:hidden;
+text-align:center;
+}
+
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.card h3{
+margin:10px 0;
+}
+
+.price{
+color:#e91e63;
+font-weight:bold;
+}
+
+.btn{
+display:inline-block;
+margin:10px;
+padding:10px 15px;
+background:#ff9800;
+color:white;
+text-decoration:none;
+border-radius:5px;
+}
+
+.btn:hover{
+background:#e68900;
+}
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:10px;
+margin-top:20px;
+}
+
+form input, form textarea{
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+form button{
+margin-top:10px;
+padding:10px;
+background:#111;
+color:white;
+border:none;
+border-radius:5px;
+}
+
+@media(max-width:600px){
+nav{
+flex-direction:column;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Rajpurohit Marble and Granite</h1>
+<p>Owner: Kanhaiya Rajpurohit</p>
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#contact">Contact</a>
+<a href="#message">Message</a>
+</nav>
+
+<div class="container" id="home">
+<h2>Our Products</h2>
+
+<div class="products">
+
+<!-- MARBLE PRODUCTS -->
+
+<div class="card">
+<img src="https://source.unsplash.com/400x300/?white-marble" alt="White Marble">
+<h3>White Marble</h3>
+<p class="price">₹ 60 / Sq Ft</p>
+<a class="btn" href="https://wa.me/91XXXXXXXXXX?text=Inquiry for White Marble">Inquiry</a>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/400x300/?italian-marble" alt="Italian Marble">
+<h3>Italian Marble</h3>
+<p class="price">₹ 120 / Sq Ft</p>
+<a class="btn" href="https://wa.me/91XXXXXXXXXX?text=Inquiry for Italian Marble">Inquiry</a>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/400x300/?black-marble" alt="Black Marble">
+<h3>Black Marble</h3>
+<p class="price">₹ 75 / Sq Ft</p>
+<a class="btn" href="https://wa.me/91XXXXXXXXXX?text=Inquiry for Black Marble">Inquiry</a>
+</div>
+
+<!-- GRANITE PRODUCTS -->
+
+<div class="card">
+<img src="https://source.unsplash.com/400x300/?black-granite" alt="Black Granite">
+<h3>Black Granite</h3>
+<p class="price">₹ 65 / Sq Ft</p>
+<a class="btn" href="https://wa.me/91XXXXXXXXXX?text=Inquiry for Black Granite">Inquiry</a>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/400x300/?red-granite" alt="Red Granite">
+<h3>Red Granite</h3>
+<p class="price">₹ 70 / Sq Ft</p>
+<a class="btn" href="https://wa.me/91XXXXXXXXXX?text=Inquiry for Red Granite">Inquiry</a>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/400x300/?brown-granite" alt="Brown Granite">
+<h3>Brown Granite</h3>
+<p class="price">₹ 55 / Sq Ft</p>
+<a class="btn" href="https://wa.me/91XXXXXXXXXX?text=Inquiry for Brown Granite">Inquiry</a>
+</div>
+
+</div>
+</div>
+
+<div class="container" id="contact">
+<h2>Contact Us</h2>
+<p><strong>Firm:</strong> Rajpurohit Marble and Granite</p>
+<p><strong>Owner:</strong> Kanhaiya Rajpurohit</p>
+<p><strong>Phone:</strong> +91-XXXXXXXXXX</p>
+<p><strong>Email:</strong> your@email.com</p>
+</div>
+
+<div class="container" id="message">
+<h2>Send Message</h2>
+<form>
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea rows="5" placeholder="Your Message"></textarea>
+<button type="submit">Send Message</button>
+</form>
+</div>
+
+<footer>
+© 2026 Rajpurohit Marble and Granite | All Rights Reserved
+</footer>
+
+</body>
+</html>
