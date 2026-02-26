@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rajpurohit Marble & Granite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      text-align:center;
+      color:white;
+      background:linear-gradient(45deg,#1d2671,#c33764);
+    }
+
+    header{
+      padding:20px;
+      background:rgba(0,0,0,0.6);
+    }
+
+    header h1{
+      margin:5px 0;
+      font-size:28px;
+    }
+
+    header p{
+      font-size:16px;
+      opacity:0.9;
+    }
+
+    .showroom-img{
+      width:90%;
+      max-width:700px;
+      border-radius:20px;
+      margin:20px auto;
+    }
+
+    .owner{
+      font-size:18px;
+      margin-bottom:20px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:15px;
+      padding:20px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.2);
+      border-radius:15px;
+      padding:10px;
+    }
+
+    .card img{
+      width:100%;
+      height:150px;
+      object-fit:cover;
+      border-radius:10px;
+    }
+
+    .card h3{
+      margin:10px 0 5px;
+      font-size:16px;
+    }
+
+    .card p{
+      font-size:14px;
+    }
+
+    footer{
+      background:rgba(0,0,0,0.7);
+      padding:15px;
+      font-size:14px;
+    }
+
+    @media(max-width:600px){
+      header h1{font-size:22px;}
+      .card img{height:130px;}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Rajpurohit Marble & Granite</h1>
+  <p>✨ Quality Stone | Trusted Name | Best Price ✨</p>
+</header>
+
+<img class="showroom-img"
+src="https://images.unsplash.com/photo-1588854337118"
+alt="Showroom Image">
+
+<div class="owner">
+  Owner : <b>Kanhaiya Rajpurohit</b>
+</div>
+
+<!-- PRODUCTS -->
+<div class="grid">
+
+  <!-- Marble -->
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1595514535415">
+    <h3>Marble Stone</h3>
+    <p>₹120 / sqft</p>
+  </div>
+
+  <!-- Granite -->
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1600585154340">
+    <h3>Granite Stone</h3>
+    <p>₹180 / sqft</p>
+  </div>
+
+  <!-- Handicraft -->
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1623241892484">
+    <h3>Handicraft Murti</h3>
+    <p>₹2500 onwards</p>
+  </div>
+
+  <!-- Round Stone -->
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1587502537745">
+    <h3>Round Stone 🪨</h3>
+    <p>₹90 / piece</p>
+  </div>
+
+  <!-- Italian Stone -->
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1604087767090">
+    <h3>Italian Marble</h3>
+    <p>₹320 / sqft</p>
+  </div>
+
+</div>
+
+<footer>
+  📞 Contact for Best Deals <br>
+  Rajpurohit Marble & Granite
+</footer>
+
+</body>
+</html>
