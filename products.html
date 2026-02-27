@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stone Collection | Rajpurohit Marble & Granite</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+header {
+    background: #1f1f1f;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background: #444;
+    text-align: center;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    font-weight: bold;
+}
+
+section {
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Stone Cards */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.card h3 {
+    margin: 10px 0;
+    color: #222;
+}
+
+/* Showroom */
+.showroom {
+    background: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.showroom img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Footer */
+footer {
+    background: #1f1f1f;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Mobile */
+@media (max-width:600px){
+    header h1 {
+        font-size: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Rajpurohit Marble & Granite</h1>
+    <p>Stone Collection & Showroom</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Stones</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<section>
+    <h2>Our Stone Collection</h2>
+
+    <div class="grid">
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Marble">
+            <h3>Marble</h3>
+            <p>Premium quality marble with smooth finish.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Granite">
+            <h3>Granite</h3>
+            <p>Strong & durable granite for all use.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Italian Marble">
+            <h3>Italian Marble</h3>
+            <p>Luxury Italian marble collection.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Makrana Marble">
+            <h3>Makrana Marble</h3>
+            <p>Famous Makrana white marble.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Vietnam Marble">
+            <h3>Vietnam Marble</h3>
+            <p>Imported Vietnam marble stones.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Handicraft Stone">
+            <h3>Handicraft Stone</h3>
+            <p>Beautiful stone handicraft work.</p>
+        </div>
+    </div>
+</section>
+
+<section class="showroom">
+    <h2>Our Showroom</h2>
+    <img src="https://via.placeholder.com/800x400" alt="Showroom">
+    <p>
+        Hamare showroom me aapko sabhi types ke marble aur granite
+        original quality ke saath dekhne ko milte hain.
+    </p>
+</section>
+
+<footer>
+    © 2026 Rajpurohit Marble & Granite | Owner: Kanhaiya Rajpurohit
+</footer>
+
+</body>
+</html>
