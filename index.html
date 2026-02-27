@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<title>Rajpurohit Marble & Granite - Kallu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+/* Header */
+header {
+    background: url('https://images.unsplash.com/photo-1581093458791-9f3c3900df6b');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+header h1 {
+    font-size: 40px;
+    margin: 0;
+}
+
+header p {
+    font-size: 18px;
+}
+
+/* Navbar */
+nav {
+    background: #222;
+    display: flex;
+    justify-content: center;
+}
+
+nav a {
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav a:hover {
+    background: #c89b3c;
+}
+
+/* Section */
+section {
+    padding: 40px;
+    text-align: center;
+}
+
+/* Products */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 25px;
+}
+
+.product {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product h3 {
+    margin: 15px 0 5px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    overflow-y: auto;
+}
+
+.modal-content {
+    background: white;
+    margin: 40px auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 10px;
+}
+
+.close {
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 15px;
+}
+
+.gallery div {
+    text-align: center;
+}
+
+.gallery img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header id="home">
+    <h1>Rajpurohit Marble & Granite – Kallu</h1>
+    <p>Premium Marble • Granite • Italian Stone • Handicraft</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#contact">Contact</a>
+    <a href="#message">Message</a>
+</nav>
+
+<section>
+    <h2>Our Products</h2>
+
+    <div class="products">
+        <div class="product" onclick="openGallery('Marble', '₹80 / sq.ft')">
+            <img src="https://images.unsplash.com/photo-1616627982319-57d0c1e7f78c">
+            <h3>Marble</h3>
+        </div>
+
+        <div class="product" onclick="openGallery('Granite', '₹120 / sq.ft')">
+            <img src="https://images.unsplash.com/photo-1588854337221-4cf9fa96059c">
+            <h3>Granite</h3>
+        </div>
+
+        <div class="product" onclick="openGallery('Italian Stone', '₹350 / sq.ft')">
+            <img src="https://images.unsplash.com/photo-1621961458389-4cfa4e2e4f75">
+            <h3>Italian Stone</h3>
+        </div>
+
+        <div class="product" onclick="openGallery('Handicraft', '₹1500 onwards')">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+            <h3>Handicraft</h3>
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<div class="modal" id="galleryModal">
+    <div class="modal-content">
+        <span class="close" onclick="closeGallery()">❌</span>
+        <h2 id="galleryTitle"></h2>
+        <div class="gallery" id="galleryImages"></div>
+    </div>
+</div>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Owner:</strong> Kanhaiya Rajpurohit</p>
+    <p><strong>Email:</strong> rajpurohitmarble@gmail.com</p>
+    <p><strong>Location:</strong> Kallu, Rajasthan</p>
+</section>
+
+<section id="message">
+    <h2>Send Message</h2>
+    <form>
+        <input type="text" placeholder="Your Name" required><br><br>
+        <input type="email" placeholder="Your Email" required><br><br>
+        <textarea placeholder="Your Message" rows="5"></textarea><br><br>
+        <button type="submit">Send</button>
+    </form>
+</section>
+
+<footer>
+    © 2026 Rajpurohit Marble & Granite – Kallu
+</footer>
+
+<script>
+function openGallery(title, price) {
+    document.getElementById("galleryTitle").innerText = title + " (" + price + ")";
+    let gallery = document.getElementById("galleryImages");
+    gallery.innerHTML = "";
+
+    for (let i = 1; i <= 12; i++) {
+        gallery.innerHTML += `
+        <div>
+            <img src="https://picsum.photos/300/200?random=${Math.random()}">
+            <p>${price}</p>
+        </div>`;
+    }
+    document.getElementById("galleryModal").style.display = "block";
+}
+
+function closeGallery() {
+    document.getElementById("galleryModal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
