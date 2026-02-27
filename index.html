@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archery Game</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #2e7d32;
+  color: white;
+  text-align: center;
+}
+
+#startScreen, #gameScreen, #resultScreen {
+  display: none;
+  padding-top: 40px;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: #ffca28;
+}
+
+canvas {
+  background: #4caf50;
+  border: 3px solid white;
+  border-radius: 10px;
+}
+
+.info {
+  margin: 10px;
+  font-size: 18px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- START SCREEN -->
+<div id="startScreen">
+  <h1>🎯 Archery Game</h1>
+  <button onclick="startGame()">Start Game</button>
+</div>
+
+<!-- GAME SCREEN -->
+<div id="gameScreen">
+  <div class="info">Score: <span id="score">0</span> | Chances: <span id="chance">10</span></div>
+  <canvas id="gameCanvas" width="300" height="300"></canvas><br><br>
+  <button onclick="shoot()">Shoot Arrow</button>
+</div>
+
+<!-- RESULT SCREEN -->
+<div id="resultScreen">
+  <h2>Game Over</h2>
+  <p>Total Score: <span id="finalScore"></span></p>
+  <p>Rating: <span id="rating"></span></p>
+  <button onclick="location.reload()">Play Again</button>
+</div>
+
+<script>
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+let score = 0;
+let chances = 10;
+let angle = 0;
+let rotating = true;
+
+document.getElementById("startScreen").style.display = "block";
+
+function startGame() {
+  document.getElementById("startScreen").style.display = "none";
+  document.getElementById("gameScreen").style.display = "block";
+  drawTarget();
+  rotateTarget();
+}
+
+function drawTarget() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.save();
+  ctx.translate(150, 150);
+  ctx.rotate(angle);
+
+  // Outer
+  ctx.beginPath();
+  ctx.arc(0, 0, 100, 0, Math.PI * 2);
+  ctx.fillStyle = "white";
+  ctx.fill();
+
+  // Blue
+  ctx.beginPath();
+  ctx.arc(0, 0, 70, 0, Math.PI * 2);
+  ctx.fillStyle = "blue";
+  ctx.fill();
+
+  // Red
+  ctx.beginPath();
+  ctx.arc(0, 0, 40, 0, Math.PI * 2);
+  ctx.fillStyle = "red";
+  ctx.fill();
+
+  ctx.restore();
+}
+
+function rotateTarget() {
+  if (rotating) {
+    angle += 0.01;
+    drawTarget();
+    requestAnimationFrame(rotateTarget);
+  }
+}
+
+function shoot() {
+  if (chances <= 0) return;
+
+  chances--;
+  document.getElementById("chance").innerText = chances;
+
+  let hit = Math.random();
+
+  if (hit < 0.3) {
+    score += 10;
+  } else if (hit < 0.6) {
+    score += 5;
+  } else {
+    score += 3;
+  }
+
+  document.getElementById("score").innerText = score;
+
+  if (chances === 0) {
+    endGame();
+  }
+}
+
+function endGame() {
+  rotating = false;
+  document.getElementById("gameScreen").style.display = "none";
+  document.getElementById("resultScreen").style.display = "block";
+  document.getElementById("finalScore").innerText = score;
+
+  let rate = "Beginner 🙂";
+  if (score > 70) rate = "Excellent 🔥";
+  else if (score > 40) rate = "Good 👍";
+
+  document.getElementById("rating").innerText = rate;
+}
+</script>
+
+</body>
+</html>
