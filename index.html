@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rajpurohit Marble & Granite</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+    }
+
+    header {
+        background: url("https://images.unsplash.com/photo-1581090700227-1e37b190418e") center/cover no-repeat;
+        height: 350px;
+        color: white;
+        text-align: center;
+        position: relative;
+    }
+
+    header::after {
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.5);
+    }
+
+    .header-content {
+        position: relative;
+        z-index: 1;
+        padding-top: 80px;
+    }
+
+    .logo {
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .slogan {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    nav {
+        background: #222;
+        padding: 12px;
+        text-align: center;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 20px;
+        font-size: 18px;
+    }
+
+    nav a:hover {
+        color: #ffcc00;
+    }
+
+    .section {
+        padding: 40px;
+        text-align: center;
+    }
+
+    .buttons button {
+        padding: 12px 25px;
+        margin: 10px;
+        font-size: 16px;
+        border: none;
+        background: #333;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .buttons button:hover {
+        background: #ffcc00;
+        color: black;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    footer {
+        background: #222;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <div class="logo">Rajpurohit Marble & Granite</div>
+        <div class="slogan">
+            Best Quality Marble & Granite <br>
+            Trust of Excellence in Every Stone
+        </div>
+    </div>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Message</a>
+    <a href="#">Contact</a>
+</nav>
+
+<div class="section">
+    <h2>Our Collection</h2>
+    <div class="buttons">
+        <button onclick="showImages('marble')">Marble</button>
+        <button onclick="showImages('granite')">Granite</button>
+        <button onclick="showImages('italian')">Italian Marble</button>
+        <button onclick="showImages('handicraft')">Handicraft</button>
+        <button onclick="showImages('roundstone')">Round Stone</button>
+    </div>
+
+    <div id="gallery" class="gallery"></div>
+</div>
+
+<footer>
+    <p>Owner: Kanhaiya Rajpurohit</p>
+    <p>© 2026 Rajpurohit Marble & Granite | Best Quality, Best Marble</p>
+</footer>
+
+<script>
+function showImages(type) {
+    const gallery = document.getElementById("gallery");
+    gallery.innerHTML = "";
+
+    let imageUrl = "";
+
+    if (type === "marble") imageUrl = "marble stone texture";
+    if (type === "granite") imageUrl = "granite stone texture";
+    if (type === "italian") imageUrl = "italian marble texture";
+    if (type === "handicraft") imageUrl = "stone handicraft";
+    if (type === "roundstone") imageUrl = "round stone marble";
+
+    for (let i = 1; i <= 10; i++) {
+        const img = document.createElement("img");
+        img.src = `https://source.unsplash.com/400x300/?${imageUrl}&sig=${i}`;
+        gallery.appendChild(img);
+    }
+}
+</script>
+
+</body>
+</html>
