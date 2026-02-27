@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archery Game</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #2e7d32;
+  color: white;
+  text-align: center;
+}
+
+canvas {
+  background: #4caf50;
+  border: 3px solid white;
+  border-radius: 10px;
+  touch-action: none;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  background: #ffca28;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#startScreen, #resultScreen {
+  padding-top: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="startScreen">
+  <h1>🎯 Archery Game</h1>
+  <button onclick="startGame()">Start Game</button>
+</div>
+
+<canvas id="gameCanvas" width="400" height="300" style="display:none;"></canvas>
+
+<p id="info"></p>
+
+<div id="resultScreen" style="display:none;">
+  <h2>Game Over</h2>
+  <p>Score: <span id="finalScore"></span></p>
+  <p>Rating: <span id="rating"></span></p>
+  <button onclick="location.reload()">Play Again</button>
+</div>
+
+<script>
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+let arrows = 10;
+let score = 0;
+let target = { x: 300, y: 150, r: 100 };
+let aim = { x: 300, y: 150 };
+let angle = 0;
+
+function startGame() {
+  document.getElementById("startScreen").style.display = "none";
+  canvas.style.display = "block";
+  update();
+}
+
+canvas.addEventListener("mousemove", e => {
+  const rect = canvas.getBoundingClientRect();
+  aim.x = e.clientX - rect.left;
+  aim.y = e.clientY - rect.top;
+});
+
+canvas.addEventListener("click", shoot);
+
+function shoot() {
+  if (arrows <= 0) return;
+  arrows--;
+
+  const dx = aim.x - target.x;
+  const dy = aim.y - target.y;
+  const dist = Math.sqrt(dx * dx + dy * dy);
+
+  if (dist < 40) score += 10;
+  else if (dist < 70) score += 5;
+  else if (dist < 100) score += 3;
+
+  if (arrows === 0) endGame();
+}
+
+function drawTarget() {
+  ctx.save();
+  ctx.translate(target.x, target.y);
+  ctx.rotate(angle);
+
+  ctx.fillStyle = "white";
+  ctx.beginPath();
+  ctx.arc(0, 0, 100, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = "blue";
+  ctx.beginPath();
+  ctx.arc(0, 0, 70, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = "red";
+  ctx.beginPath();
+  ctx.arc(0, 0, 40, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.restore();
+}
+
+function drawBow() {
+  ctx.strokeStyle = "brown";
+  ctx.lineWidth = 6;
+  ctx.beginPath();
+  ctx.arc(60, 150, 80, -1, 1);
+  ctx.stroke();
+
+  // Arrow
+  ctx.strokeStyle = "black";
+  ctx.beginPath();
+  ctx.moveTo(60, 150);
+  ctx.lineTo(aim.x, aim.y);
+  ctx.stroke();
+}
+
+function update() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  angle += 0.01;
+  drawTarget();
+  drawBow();
+
+  document.getElementById("info").innerText =
+    `Score: ${score} | Arrows left: ${arrows}`;
+
+  if (arrows > 0) requestAnimationFrame(update);
+}
+
+function endGame() {
+  canvas.style.display = "none";
+  document.getElementById("resultScreen").style.display = "block";
+  document.getElementById("finalScore").innerText = score;
+
+  let rate = "Beginner 🙂";
+  if (score > 70) rate = "Excellent 🔥";
+  else if (score > 40) rate = "Good 👍";
+
+  document.getElementById("rating").innerText = rate;
+}
+</script>
+
+</body>
+</html>
