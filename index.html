@@ -206,16 +206,29 @@ let box=document.getElementById(id);
 if(box.innerHTML===""){
 for(let i=1;i<=12;i++){
 box.innerHTML+=`<img src="https://source.unsplash.com/400x400/?${keyword},${i}">`;
-}}
-}
-function toggle(id){
-let g=document.getElementById(id);
+}function toggle(id){
+let g = document.getElementById(id);
 if(g.style.display==="grid"){
-g.style.display="none";
-}else{
+    g.style.display="none";
+    return;
+}
 g.style.display="grid";
-fill(id,id);
-}}
+g.innerHTML="";
+
+let keyword = "";
+
+// 👇 YAHAN PHOTO CATEGORY FIX KAR RAHE HAIN
+if(id==="handicraft") keyword="marble handicraft statue luxury";
+if(id==="round") keyword="round stone marble sphere luxury";
+if(id==="vietnam") keyword="vietnam white marble luxury slab";
+if(id==="marble") keyword="luxury marble slab";
+if(id==="granite") keyword="luxury granite slab";
+if(id==="italian") keyword="italian marble luxury";
+
+for(let i=1;i<=12;i++){
+g.innerHTML += `<img src="https://source.unsplash.com/400x400/?${keyword}&sig=${i}">`;
+}
+}
 </script>
 
 </body>
