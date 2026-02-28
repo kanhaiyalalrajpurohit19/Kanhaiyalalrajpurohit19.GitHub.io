@@ -230,6 +230,21 @@ g.innerHTML += `<imgfunction fill(...) { }g.innerHTML += `<img src="https://sour
 }
 }
 </script>
+<script>
+function showGallery(type){
+    let box = document.getElementById(type);
 
+    // agar photo pehle se dikh rahi hai to hide
+    if(box.innerHTML !== ""){
+        box.innerHTML = "";
+        return;
+    }
+
+    // nayi photos load karo
+    for(let i = 1; i <= 12; i++){
+        box.innerHTML += `<img src="images/${type}${i}.jpg" alt="${type} image">`;
+    }
+}
+</script>
 </body>
 </html>
