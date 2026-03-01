@@ -215,39 +215,38 @@ if(g.style.display==="grid"){
     g.style.display="none";
     return;
 }
-g.style.display="grid";
-g.innerHTML="";
-
-let keyword = "";
-
-// 👇 YAHAN PHOTO CATEGORY FIX KAR RAHE HAIN
-if(id==="handicraft") keyword="marble handicraft  luxury";
-if(id==="round") keyword="round stone marble  luxury";
-if(id==="vietnam") keyword="vietnam white marble luxury slab";
-if(id==="marble") keyword="luxury marble slab";
-if(id==="granite") keyword="luxury granite slab";
-if(id==="italian") keyword="italian marble slab;
-
-for(let i=1;i<=12;i++){
-g.innerHTML += `<imgfunction fill(...) { }g.innerHTML += `<img src="https://source.unsplash.com/...">`; 400x400//?${keyword}&sig=${i}">`;
-}
-}
-</script>
 <script>
-function showGallery(type){
-    let box = document.getElementById(type);
-
-    // agar photo pehle se dikh rahi hai to hide
-    if(box.innerHTML !== ""){
-        box.innerHTML = "";
+function toggle(id) {
+    let g = document.getElementById(id);
+    
+    // Agar gallery pehle se khuli hai to band karein (Toggle logic)
+    if (g.style.display === "grid") {
+        g.style.display = "none";
+        g.innerHTML = "";
         return;
     }
 
-    // nayi photos load karo
-    for(let i = 1; i <= 12; i++){
-        box.innerHTML += `<img src="images/${type}${i}.jpg" alt="${type} image">`;
+    // Gallery ko dikhana shuru karein
+    g.style.display = "grid";
+    g.innerHTML = "<p style='padding:20px;'>Loading luxury stones...</p>"; 
+
+    let keyword = "";
+    // Category ke hisaab se keyword set karna
+    if(id==="handicraft") keyword="marble-handicraft";
+    if(id==="round") keyword="round-stone";
+    if(id==="vietnam") keyword="vietnam-white-marble";
+    if(id==="marble") keyword="marble-floor";
+    if(id==="granite") keyword="granite-slab";
+    if(id==="italian") keyword="italian-marble";
+
+    // Thodi der baad photos load karna (Clean look ke liye)
+    g.innerHTML = ""; 
+    for (let i = 1; i <= 12; i++) {
+        // 'loremflickr' zyada reliable hai automatic images ke liye
+        g.innerHTML += `<img src="https://loremflickr.com/400/400/${keyword}?lock=${i}" alt="${id}">`;
     }
 }
 </script>
+
 </body>https://share.google/2mJCkS3MEZ6yc3IXH
 </html>
