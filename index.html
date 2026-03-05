@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajpurohit Marble and Granite</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<h1>Rajpurohit Marble & Granite</h1>
+<p>Owner : Kanhaiya Rajpurohit | Kishangarh</p>
+</div>
+
+<div class="menu">
+<div class="dots" onclick="toggleMenu()">⋮</div>
+<div id="dropdown" class="dropdown">
+<a href="#message">Inquiry</a>
+</div>
+</div>
+
+</header>
+
+<nav>
+
+<a href="#home">Home</a>
+<a href="#products">Products</a>
+<a href="#contact">Contact</a>
+<a href="#message">Message</a>
+
+</nav>
+
+<section id="home">
+
+<h2>Welcome to Rajpurohit Marble and Granite</h2>
+
+<p>We provide premium quality marble and granite for luxury construction.</p>
+<p>Our stones are durable, elegant and perfect for modern interiors.</p>
+<p>Customer satisfaction is our top priority.</p>
+<p>Best price and timely delivery guaranteed.</p>
+<p>Wide collection of Makrana marble, granite and handicraft stone.</p>
+
+<div class="features">
+
+<div>Premium Quality</div>
+<div>Customer Satisfaction</div>
+<div>Best Price</div>
+<div>Timely Delivery</div>
+
+</div>
+
+</section>
+
+<section id="products">
+
+<h2>Our Products</h2>
+
+<div class="category">
+
+<button onclick="loadProducts('marble')">Marble</button>
+<button onclick="loadProducts('granite')">Granite</button>
+<button onclick="loadProducts('handicraft')">Handicraft</button>
+<button onclick="loadProducts('makrana')">Makrana Marble</button>
+<button onclick="loadProducts('round stone')">Round Stone</button>
+
+</div>
+
+<div id="productBox" class="product-grid"></div>
+
+</section>
+
+<section id="contact">
+
+<h2>Contact Us</h2>
+
+<button onclick="openWhatsApp()">Chat on WhatsApp</button>
+
+</section>
+
+<section id="message">
+
+<h2>Send Inquiry</h2>
+
+<form onsubmit="sendMessage(event)">
+
+<input id="fname" type="text" placeholder="First Name" required>
+<input id="lname" type="text" placeholder="Last Name" required>
+<input id="company" type="text" placeholder="Company">
+<input id="state" type="text" placeholder="State">
+<input id="country" type="text" placeholder="Country">
+
+<textarea id="msg" placeholder="Message"></textarea>
+
+<button type="submit">Submit</button>
+
+</form>
+
+</section>
+
+<section class="video">
+
+<h2>Showroom Welcome</h2>
+
+<video controls width="100%">
+<source src="welcome.mp4" type="video/mp4">
+</video>
+
+<p>
+Welcome to Rajpurohit Marble and Granite – Stone Hub of Kishangarh.
+Premium Marble, Granite and Handicraft Products Available Here.
+</p>
+
+</section>
+
+<div id="popup" class="popup">
+
+<div class="popup-content">
+
+<span onclick="closePopup()">×</span>
+
+<div id="details"></div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
