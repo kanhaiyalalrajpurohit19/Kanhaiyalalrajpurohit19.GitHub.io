@@ -16,8 +16,7 @@ for(let i=1;i<=20;i++){
 
 let img=document.createElement("img");
 
-img.src="https://source.unsplash.com/300x200/?"+type+"&"+i;
-
+img.src=IMG_20260228_164456.jpg
 img.onclick=openPopup;
 
 gallery.appendChild(img);
