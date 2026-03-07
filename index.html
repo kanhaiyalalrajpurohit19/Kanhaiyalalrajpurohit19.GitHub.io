@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajpurohit Marble & Granite</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+scroll-behavior:smooth;
+background:#f4f4f4;
+}
+
+/* HEADER */
+
+header{
+height:100vh;
+background:url("Screenshot_2026-02-28-16-44-42-43_99c04817c0de5652397fc8b56c3b3817.jpg") center/cover no-repeat;
+color:white;
+position:relative;
+}
+
+.overlay{
+background:rgba(0,0,0,0.6);
+height:100%;
+padding:20px;
+}
+
+.title{
+text-align:center;
+margin-top:120px;
+font-size:40px;
+font-weight:bold;
+letter-spacing:3px;
+}
+
+.owner{
+text-align:center;
+margin-top:10px;
+font-size:18px;
+}
+
+/* MENU */
+
+.menu{
+position:absolute;
+top:20px;
+right:20px;
+font-size:28px;
+cursor:pointer;
+}
+
+.dropdown{
+position:absolute;
+top:60px;
+right:20px;
+background:white;
+color:black;
+display:none;
+}
+
+.dropdown a{
+display:block;
+padding:10px 20px;
+text-decoration:none;
+color:black;
+}
+
+.dropdown a:hover{
+background:#ddd;
+}
+
+/* NAV */
+
+nav{
+background:#111;
+text-align:center;
+}
+
+nav a{
+color:white;
+padding:15px;
+display:inline-block;
+text-decoration:none;
+}
+
+nav a:hover{
+background:#444;
+}
+
+/* SECTION */
+
+section{
+padding:60px 20px;
+max-width:1100px;
+margin:auto;
+}
+
+h2{
+text-align:center;
+margin-bottom:30px;
+}
+
+/* SERVICES */
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.service{
+background:white;
+padding:20px;
+text-align:center;
+border-radius:10px;
+}
+
+/* PRODUCTS */
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.product{
+background:white;
+padding:10px;
+text-align:center;
+border-radius:10px;
+cursor:pointer;
+}
+
+.product img{
+width:100%;
+height:150px;
+object-fit:cover;
+}
+
+/* GALLERY MODAL */
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+overflow:auto;
+}
+
+.modal img{
+width:200px;
+margin:10px;
+}
+
+/* CONTACT */
+
+.contact{
+text-align:center;
+}
+
+.contact a{
+display:inline-block;
+padding:12px 20px;
+margin:10px;
+background:black;
+color:white;
+text-decoration:none;
+}
+
+/* FORM */
+
+form{
+max-width:500px;
+margin:auto;
+}
+
+form input,form textarea{
+width:100%;
+padding:10px;
+margin:10px 0;
+}
+
+form button{
+padding:12px;
+width:100%;
+background:black;
+color:white;
+border:none;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header id="home">
+<div class="overlay">
+
+<div class="menu" onclick="toggleMenu()">⋮</div>
+
+<div class="dropdown" id="menuBox">
+<a href="#home">Home</a>
+<a href="#contact">Contact</a>
+<a href="#message">Message</a>
+</div>
+
+<div class="title">RAJPUROHIT MARBLE & GRANITE</div>
+<div class="owner">Owner : Kanhaiya Rajpurohit</div>
+
+</div>
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#products">Products</a>
+<a href="#contact">Contact</a>
+<a href="#message">Message</a>
+</nav>
+
+<section>
+
+<h2>Welcome</h2>
+
+<p style="text-align:center">
+Welcome to Rajpurohit Marble & Granite – Premium Marble & Granite Showroom.
+We provide best quality Marble, Granite, Makrana Marble, Handicraft Stone and Round Stone.
+</p>
+
+</section>
+
+<section>
+
+<h2>Our Services</h2>
+
+<div class="services">
+
+<div class="service">Premium Quality</div>
+<div class="service">Customer Satisfaction</div>
+<div class="service">Best Price</div>
+<div class="service">Timely Delivery</div>
+
+</div>
+
+</section>
+
+<section id="products">
+
+<h2>Products</h2>
+
+<div class="products">
+
+<div class="product" onclick="openGallery('marble')">
+<img src="marble1.jpg">
+<p>Marble</p>
+</div>
+
+<div class="product" onclick="openGallery('granite')">
+<img src="granite1.jpg">
+<p>Granite</p>
+</div>
+
+<div class="product" onclick="openGallery('makrana')">
+<img src="makrana1.jpg">
+<p>Makrana Marble</p>
+</div>
+
+<div class="product" onclick="openGallery('handicraft')">
+<img src="handicraft1.jpg">
+<p>Handicraft Stone</p>
+</div>
+
+<div class="product" onclick="openGallery('round')">
+<img src="round1.jpg">
+<p>Round Stone</p>
+</div>
+
+</div>
+
+</section>
+
+<div class="modal" id="gallery"></div>
+
+<section id="contact">
+
+<h2>Contact</h2>
+
+<div class="contact">
+
+<p>📞 9460574256</p>
+
+<a href="tel:9460574256">Call Now</a>
+
+<a href="https://wa.me/919460574256">WhatsApp</a>
+
+</div>
+
+</section>
+
+<section id="message">
+
+<h2>Send Message</h2>
+
+<form onsubmit="sendMessage();return false">
+
+<input type="text" id="fname" placeholder="First Name" required>
+
+<input type="text" id="lname" placeholder="Last Name" required>
+
+<input type="text" id="state" placeholder="State" required>
+
+<input type="text" id="country" placeholder="Country" required>
+
+<textarea id="msg" placeholder="Message"></textarea>
+
+<button type="submit">Submit</button>
+
+</form>
+
+</section>
+
+<footer>
+
+Rajpurohit Marble & Granite
+
+</footer>
+
+<script>
+
+function toggleMenu(){
+let m=document.getElementById("menuBox");
+m.style.display=m.style.display=="block"?"none":"block";
+}
+
+function openGallery(type){
+
+let modal=document.getElementById("gallery");
+modal.style.display="block";
+
+let html="";
+
+for(let i=1;i<=20;i++){
+
+html+=`<img src="${type}${i}.jpg">`;
+
+}
+
+html+='<div style="color:white;text-align:center"><br><button onclick="closeGallery()">Close</button></div>';
+
+modal.innerHTML=html;
+
+}
+
+function closeGallery(){
+document.getElementById("gallery").style.display="none";
+}
+
+function sendMessage(){
+
+let f=document.getElementById("fname").value;
+let l=document.getElementById("lname").value;
+let s=document.getElementById("state").value;
+let c=document.getElementById("country").value;
+let m=document.getElementById("msg").value;
+
+let text=`Name: ${f} ${l}%0AState: ${s}%0ACountry: ${c}%0AMessage: ${m}`;
+
+window.open("https://wa.me/919460574256?text="+text);
+
+}
+
+</script>
+
+</body>
+</html>
